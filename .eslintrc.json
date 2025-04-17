@@ -4,8 +4,8 @@
     "indent": ["error", 2],
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
-    "no-unused-vars": "warn",
-    "no-console": "warn",
+    "no-unused-vars": "off",
+    "no-console": "off",
     "no-debugger": "warn",
     "react/no-children-prop": "off",
     "react-hooks/exhaustive-deps": "off"
