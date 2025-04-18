@@ -19,6 +19,11 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    serverActions: {
+      allowedOrigins: ['localhost:3000', 'your-production-domain.vercel.app']
+    }
+  }
 };
 
 export default withPWA(nextConfig);
