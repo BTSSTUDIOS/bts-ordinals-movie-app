@@ -84,17 +84,17 @@ export default function Inscribe() {
 
   const form = useForm({
     defaultValues: {
-      file: null,
+      file: null as File | null,
     },
-    onSubmit: async ({ value }: { value: TDirectInscribeForm }) => {
+    onSubmit: async ({ value }) => {
       setLoading(true);
       setError(null);
       
       try {
         // Validate form data
-        v.parse(directInscribeSchema, value);
+        const validatedData = v.parse(directInscribeSchema, value);
 
-        if (!value.file) {
+        if (!validatedData.file) {
           throw new Error('Please select a file');
         }
 
@@ -106,7 +106,7 @@ export default function Inscribe() {
           throw new Error('Fee rate not available. Please try again.');
         }
 
-        const { file } = value;
+        const { file } = validatedData;
         const fileExtension = file.name.split('.').pop()?.toLowerCase();
         const fileRef = ref(storage, `/inscriptions/${Date.now()}.${fileExtension}`);
         
@@ -142,8 +142,7 @@ export default function Inscribe() {
       } finally {
         setLoading(false);
       }
-    },
-    validatorAdapter: valibotValidator()
+    }
   });
 
   if (error) {
@@ -182,7 +181,7 @@ export default function Inscribe() {
                     onChange={(e) => {
                       const file = e?.target?.files?.[0];
                       if (file) {
-                        form.setFieldValue(name, file);
+                        form.setFieldValue(name, file as File);
                       }
                     }}
                   />
@@ -198,7 +197,7 @@ export default function Inscribe() {
             >
               {loading ? (
                 <>
-                  <LoaderPinwheel className='animate-spin mr-2' />
+                  <LoaderPinwheel className='mr-2 h-4 w-4 animate-spin' />
                   Processing...
                 </>
               ) : (
