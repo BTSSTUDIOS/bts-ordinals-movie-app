@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Search, Filter, Play } from 'lucide-react';
 import { useSession } from 'next-auth/react';
+import Image from 'next/image';
 
 interface Movie {
   id: string;
@@ -152,10 +153,11 @@ export default function MoviesPage() {
               onClick={() => setSelectedMovie(movie)}
             >
               <div className="relative aspect-video">
-                <img
+                <Image
                   src={movie.thumbnail}
                   alt={movie.title}
-                  className="object-cover w-full h-full rounded-t-lg"
+                  fill
+                  className="object-cover rounded-t-lg"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-opacity flex items-center justify-center">
                   <Play className="w-12 h-12 text-white opacity-0 hover:opacity-100 transition-opacity" />
