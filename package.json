@@ -21,6 +21,7 @@
     "@tanstack/react-query-devtools": "^5.51.16",
     "@tanstack/valibot-form-adapter": "^0.26.4",
     "@types/luxon": "^3.4.2",
+    "@vimeo/player": "^2.26.0",
     "bip322-js": "^2.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

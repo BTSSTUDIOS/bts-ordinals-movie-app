@@ -2,15 +2,20 @@ import type { Metadata } from 'next';
 export * from './imgs';
 export * from './time';
 
-export const APP_NAME = 'Ordinals Template App';
-const CLEAN_APP_NAME = APP_NAME.replace(/ /g, '-').toLowerCase();
+export const APP_NAME = 'ᗺTS STUDIOS FILMS';
+const CLEAN_APP_NAME = 'bts-studios-films'; // Simplified version for cookie names
 
 export const DEFAULT_METADATA: Metadata = {
-  title: {
-    default: `${APP_NAME}`,
-    template: `${APP_NAME} | %s`
+  title: APP_NAME,
+  description: 'The World\'s First Decentralized Film Studio & Streaming Platform',
+  icons: {
+    icon: '/favicon.ico',
   },
-  manifest: './manifest.json'
+};
+
+export const DEFAULT_DIMENSIONS = {
+  width: 50,
+  height: 50
 };
 
 // The wallet cookie is a string with no spaces in it. We prefix the APP_NAME with __wallet-cookie and then attach the APP_NAME at the end for uniqueness

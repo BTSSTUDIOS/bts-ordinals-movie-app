@@ -31,98 +31,129 @@ const directInscribeSchema = v.object({
 type TDirectInscribeForm = v.InferInput<typeof directInscribeSchema>;
 
 export default function Inscribe() {
-
   const { wallet } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [order, setOrder] = useState<DirectInscriptionOrder | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-  const { data, error, isLoading } = useQuery({
+  const { data, error: orderError, isLoading } = useQuery({
     queryFn: async () => {
-      return ordinalsbot.Inscription().getOrder(order?.id!);
+      if (!order?.id) return null;
+      return ordinalsbot.Inscription().getOrder(order.id);
     },
     queryKey: ['order', order?.id],
-    enabled: !!order,
+    enabled: !!order?.id,
     staleTime: ONE_SECOND.toMillis() * 5,
-    // The refetch interval is based on whether or not we have the charge address. If we do, then we can poll every 20 seconds, instead of every 5
     refetchInterval: () => {
-      if (order?.charge.address) return ONE_MINUTE.toMillis() / 3;
+      if (order?.charge?.address) return ONE_MINUTE.toMillis() / 3;
       return ONE_SECOND.toMillis() * 5;
     }
   });
 
-  const { data: feeRate, isLoading: feeRateLoading, error: feeRateError } = useQuery(
-    {
-      queryFn: async () => fetch('/api/feeRate').then(res => res.json()),
-      queryKey: ['feeRate']
+  const { data: feeRate, isLoading: feeRateLoading, error: feeRateError } = useQuery({
+    queryFn: async () => {
+      try {
+        const response = await fetch('/api/feeRate');
+        if (!response.ok) {
+          throw new Error('Failed to fetch fee rate');
+        }
+        return response.json();
+      } catch (error) {
+        console.error('Fee rate error:', error);
+        throw error;
+      }
+    },
+    queryKey: ['feeRate']
+  });
+
+  useEffect(() => {
+    if (orderError) {
+      setError(orderError.message);
     }
-  );
+    if (feeRateError) {
+      setError(feeRateError.message);
+    }
+  }, [orderError, feeRateError]);
 
   useEffect(() => {
     if (isLoading) return;
-    setOrder(data as DirectInscriptionOrder);
-  }, [data]);
+    if (data) {
+      setOrder(data as DirectInscriptionOrder);
+    }
+  }, [data, isLoading]);
 
   const form = useForm({
     defaultValues: {
       file: null,
     },
-    onSubmit: async ({ value }: { value: TDirectInscribeForm}) => {
-
-      if (
-        (loading || error) ||
-        (feeRateLoading || feeRateError)
-      ) return; // Don't submit if we're loading or have an error
-
-      try {
-        v.parse(directInscribeSchema, value);
-      } catch (err: any) {
-        setLoading(false);
-        return toast.error(err.message);
-      }
-
-      if (!value.file) {
-        setLoading(false);
-        return toast.error('Please select a file');
-      }
-
-      if (!wallet?.ordinalsAddress) {
-        setLoading(false);
-        return toast.error('Please connect a wallet');
-      }
-
-      const { file } = value;
-
-      const fileExtension = value.file?.name.split('.').pop()?.toLowerCase();
-
-      const fileRef = ref(storage, `/inscriptions.${fileExtension}`);
+    onSubmit: async ({ value }: { value: TDirectInscribeForm }) => {
+      setLoading(true);
+      setError(null);
       
-      const uploadResult = await uploadBytes(fileRef, value.file as File);
+      try {
+        // Validate form data
+        v.parse(directInscribeSchema, value);
 
-      if (uploadResult) {
-        const downloadURL = await getDownloadURL(fileRef);
+        if (!value.file) {
+          throw new Error('Please select a file');
+        }
+
+        if (!wallet?.ordinalsAddress) {
+          throw new Error('Please connect a wallet');
+        }
+
+        if (feeRateLoading || feeRateError) {
+          throw new Error('Fee rate not available. Please try again.');
+        }
+
+        const { file } = value;
+        const fileExtension = file.name.split('.').pop()?.toLowerCase();
+        const fileRef = ref(storage, `/inscriptions/${Date.now()}.${fileExtension}`);
         
-        const { type, name, size  } = file;
+        // Upload file to Firebase Storage
+        const uploadResult = await uploadBytes(fileRef, file);
+        if (!uploadResult) {
+          throw new Error('Failed to upload file');
+        }
 
+        const downloadURL = await getDownloadURL(fileRef);
+        const { type, name, size } = file;
+
+        // Create inscription order
         const directInscribeResponse = await ordinalsbot.Inscription().createDirectOrder({
           files: [{
             url: downloadURL,
-            name, size, type
+            name,
+            size,
+            type
           }],
           lowPostage: USE_LOW_POSTAGE,
           fee: feeRate?.fastestFee,
-          receiveAddress: wallet?.ordinalsAddress
+          receiveAddress: wallet.ordinalsAddress
         });
 
         setOrder(directInscribeResponse);
+        toast.success('File uploaded successfully! Please proceed with payment.');
 
-      } else {
-        toast.error('Failed to upload avatar');
+      } catch (error: any) {
+        console.error('Inscription error:', error);
+        setError(error.message);
+        toast.error(error.message || 'Failed to inscribe file');
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
     },
     validatorAdapter: valibotValidator()
-  
   });
+
+  if (error) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen p-4">
+        <div className="text-red-500 mb-4">{error}</div>
+        <Button onClick={() => setError(null)}>Try Again</Button>
+      </div>
+    );
+  }
   
   return (
     <div className='flex flex-row flex-wrap justify-center w-full pt-10 px-10 gap-5'>
@@ -149,8 +180,10 @@ export default function Inscribe() {
                     id={name}
                     name={name}
                     onChange={(e) => {
-                      //@ts-ignore
-                      form.setFieldValue(name, e?.target?.files?.[0]);
+                      const file = e?.target?.files?.[0];
+                      if (file) {
+                        form.setFieldValue(name, file);
+                      }
                     }}
                   />
                 </div>
@@ -159,7 +192,19 @@ export default function Inscribe() {
           />
 
           <div className='flex flex-row justify-end mt-5'>
-            <Button type='submit' disabled={loading || feeRateLoading}>Inscribe { loading && <LoaderPinwheel className='animate-spin' /> }</Button>
+            <Button 
+              type='submit' 
+              disabled={loading || feeRateLoading || !wallet?.ordinalsAddress}
+            >
+              {loading ? (
+                <>
+                  <LoaderPinwheel className='animate-spin mr-2' />
+                  Processing...
+                </>
+              ) : (
+                'Inscribe'
+              )}
+            </Button>
           </div>
         </form>
       </div>
@@ -176,26 +221,30 @@ export default function Inscribe() {
         />
       </div>
 
-      {
-        [InscriptionOrderState.QUEUED, InscriptionOrderState.COMPLETED].includes(order?.state!) && <div className='w-2/3'>
+      {order?.files && [InscriptionOrderState.QUEUED, InscriptionOrderState.COMPLETED].includes(order.state) && (
+        <div className='w-2/3'>
           <h3 className='text-2xl'>Inscription Status</h3>
-          { 
-            order?.files?.map((file: InscriptionFile, index: number) => {
-              return (
-                <div className='flex flex-row justify-between rounded-sm border-solid border-2 border-neutral-500 h-12 items-center px-5' key={index}>
-                  <div className='flex-1'>{index + 1}</div>
-                  <div className='flex-1'>{file.name}</div>
-                  <div className='flex-1'>{file.status}</div>
-                  <div className='flex flex-col 2'>
-                    <div className='text-sm'><a href={`${EXPLORER_URL}/${file.inscriptionId}`} target='_blank'>{file.inscriptionId}</a></div>
-                    <div className='text-xs'><a href={`${MEMPOOL_URL}/tx/${file.sent}`} target='_blank'>{file.sent}</a></div>
-                  </div>
+          {order.files.map((file: InscriptionFile, index: number) => (
+            <div className='flex flex-row justify-between rounded-sm border-solid border-2 border-neutral-500 h-12 items-center px-5' key={index}>
+              <div className='flex-1'>{index + 1}</div>
+              <div className='flex-1'>{file.name}</div>
+              <div className='flex-1'>{file.status}</div>
+              <div className='flex flex-col'>
+                <div className='text-sm'>
+                  <a href={`${EXPLORER_URL}/${file.inscriptionId}`} target='_blank' rel='noopener noreferrer'>
+                    {file.inscriptionId}
+                  </a>
                 </div>
-              );
-            })
-          }
+                <div className='text-xs'>
+                  <a href={`${MEMPOOL_URL}/tx/${file.sent}`} target='_blank' rel='noopener noreferrer'>
+                    {file.sent}
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-      }
+      )}
     </div>
   );
 }
