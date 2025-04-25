@@ -8,6 +8,8 @@
     "no-console": "off",
     "no-debugger": "warn",
     "react/no-children-prop": "off",
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/exhaustive-deps": "off",
+    "@next/next/no-img-element": "warn",
+    "react/no-unescaped-entities": "off"
   }
 }
