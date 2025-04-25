@@ -1,6 +1,5 @@
 {
-  "build": "npx update-browserslist-db@latest && pnpm run build",
-  "install": "pnpm install",
+  "buildCommand": "npx update-browserslist-db@latest && pnpm run build",
   "framework": "nextjs",
   "outputDirectory": ".next"
 } 
