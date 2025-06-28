@@ -1,7 +1,7 @@
 import { Verifier } from 'bip322-js';
 import admin from '@/app/api/firebase';
 
-const MESSAGE = 'Sign into NextJS Ordinals Application';
+const MESSAGE = 'Sign into BTS STUDIOS';
 
 export async function POST(req: Request) {
   try {

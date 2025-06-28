@@ -41,36 +41,40 @@ export default function Page() {
   }, [session]);
 
   return (
-    <div className='min-h-screen py-8 px-4'>
+    <div className='min-h-screen py-8 px-4 bg-gradient-to-br from-white via-gray-50 to-gray-100'>
       <div className='max-w-7xl mx-auto'>
         {/* Welcome Section */}
         <div className='text-center mb-8'>
-          <h1 className='text-4xl font-bold mb-2'>Welcome to BTS STUDIOS Dashboard</h1>
-          <p className='text-xl text-muted-foreground'>Your decentralized film and streaming platform</p>
+          <h1 className='text-4xl font-bold mb-2'>
+            <span className='bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent'>
+              🎬 BTS STUDIOS Dashboard 🎬
+            </span>
+          </h1>
+          <p className='text-xl text-gray-600'>Your decentralized film and streaming platform</p>
         </div>
 
         {/* Top Section - Rewards and Management */}
         <div className='grid grid-cols-1 md:grid-cols-4 gap-6 mb-8'>
-          <Card>
-            <CardHeader>
-              <CardTitle>💎 Rewards</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className='text-3xl font-bold'>${userStats.totalEarnings.toLocaleString()}</p>
-              <p className='text-sm text-muted-foreground'>Total earnings</p>
-              <Button asChild className='w-full mt-4'>
-                <Link href='/rewards'>Manage Rewards</Link>
-              </Button>
-            </CardContent>
-          </Card>
+          <div className='relative group bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden'>
+            <div className='absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-green-400 to-emerald-500'></div>
+            <div className='relative z-10'>
+              <div className='text-2xl mb-2'>💎</div>
+              <h3 className='text-lg font-bold mb-2 text-gray-800'>Rewards</h3>
+              <p className='text-3xl font-bold text-green-600 mb-2'>${userStats.totalEarnings.toLocaleString()}</p>
+              <p className='text-sm text-gray-600 mb-4'>Total earnings</p>
+              <Link href='/rewards' className='inline-block w-full px-4 py-2 bg-gradient-to-r from-green-400 to-emerald-500 text-white rounded-full font-semibold text-center hover:shadow-lg transform hover:scale-105 transition-all duration-200'>
+                Manage Rewards
+              </Link>
+            </div>
+          </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>👥 Profile</CardTitle>
-            </CardHeader>
-            <CardContent>
+          <div className='relative group bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden'>
+            <div className='absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-blue-400 to-cyan-500'></div>
+            <div className='relative z-10'>
+              <div className='text-2xl mb-2'>👥</div>
+              <h3 className='text-lg font-bold mb-2 text-gray-800'>Profile</h3>
               <div className='flex items-center space-x-4'>
-                <div className='w-16 h-16 relative rounded-full overflow-hidden'>
+                <div className='w-12 h-12 relative rounded-full overflow-hidden border-2 border-gray-200'>
                   <Image
                     src={session?.user?.image || '/default-avatar.png'}
                     alt='Profile'
@@ -79,57 +83,60 @@ export default function Page() {
                   />
                 </div>
                 <div>
-                  <h3 className='font-semibold'>{session?.user?.name || 'Anonymous User'}</h3>
-                  <p className='text-sm text-muted-foreground'>{session?.user?.email || 'No email provided'}</p>
+                  <h4 className='font-semibold text-sm'>{session?.user?.name || 'Anonymous User'}</h4>
+                  <p className='text-xs text-gray-600'>{session?.user?.email || 'No email provided'}</p>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>📊 Stats</CardTitle>
-            </CardHeader>
-            <CardContent>
+          <div className='relative group bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden'>
+            <div className='absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-purple-400 to-pink-500'></div>
+            <div className='relative z-10'>
+              <div className='text-2xl mb-2'>📊</div>
+              <h3 className='text-lg font-bold mb-2 text-gray-800'>Stats</h3>
               <div className='space-y-2'>
-                <p className='flex justify-between'>
+                <p className='flex justify-between text-sm'>
                   <span>Views:</span>
-                  <span className='font-semibold'>{userStats.totalViews.toLocaleString()}</span>
+                  <span className='font-semibold text-purple-600'>{userStats.totalViews.toLocaleString()}</span>
                 </p>
-                <p className='flex justify-between'>
+                <p className='flex justify-between text-sm'>
                   <span>Uploads:</span>
-                  <span className='font-semibold'>{userStats.totalUploads}</span>
+                  <span className='font-semibold text-purple-600'>{userStats.totalUploads}</span>
                 </p>
-                <p className='flex justify-between'>
+                <p className='flex justify-between text-sm'>
                   <span>Watch Time:</span>
-                  <span className='font-semibold'>{Math.floor(userStats.watchTime / 60)}h</span>
+                  <span className='font-semibold text-purple-600'>{Math.floor(userStats.watchTime / 60)}h</span>
                 </p>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>🎥 Vimeo Status</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className='text-sm text-muted-foreground'>Connected to Vimeo Pro</p>
-              <p className='text-sm text-muted-foreground'>Storage: 2.5GB / 5TB</p>
-              <Button asChild className='w-full mt-4'>
-                <Link href='/settings/video'>Manage Videos</Link>
-              </Button>
-            </CardContent>
-          </Card>
+          <div className='relative group bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden'>
+            <div className='absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-orange-400 to-yellow-500'></div>
+            <div className='relative z-10'>
+              <div className='text-2xl mb-2'>🎥</div>
+              <h3 className='text-lg font-bold mb-2 text-gray-800'>Vimeo Status</h3>
+              <p className='text-sm text-gray-600 mb-1'>Connected to Vimeo Pro</p>
+              <p className='text-sm text-gray-600 mb-4'>Storage: 2.5GB / 5TB</p>
+              <Link href='/settings/video' className='inline-block w-full px-4 py-2 bg-gradient-to-r from-orange-400 to-yellow-500 text-white rounded-full font-semibold text-center hover:shadow-lg transform hover:scale-105 transition-all duration-200'>
+                Manage Videos
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Center Section - Featured Movie */}
-        <Card className='mb-8'>
-          <CardHeader>
-            <CardTitle>Featured Movie</CardTitle>
-          </CardHeader>
-          <CardContent>
+        <div className='relative group bg-white rounded-2xl p-8 shadow-lg border-2 border-gray-200 hover:shadow-2xl transition-all duration-300 mb-8 overflow-hidden'>
+          <div className='absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-indigo-400 to-purple-500'></div>
+          <div className='relative z-10'>
+            <h2 className='text-2xl font-bold mb-6 text-gray-800'>
+              <span className='bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent'>
+                🎬 Featured Movie
+              </span>
+            </h2>
             <div className='max-w-3xl mx-auto'>
-              <div className='aspect-video relative rounded-lg overflow-hidden bg-muted'>
+              <div className='aspect-video relative rounded-lg overflow-hidden bg-gray-100 border-2 border-gray-200'>
                 <iframe 
                   src="https://player.vimeo.com/video/358185350?h=fc495ed011" 
                   className="w-full h-full"
@@ -139,127 +146,124 @@ export default function Page() {
               </div>
               <div className='mt-4 flex justify-between items-center'>
                 <div>
-                  <h3 className='text-xl font-semibold'>NIGHTSHADE - FULL LENGTH TRAILER</h3>
-                  <p className='text-muted-foreground'>A BTS STUDIOS Production</p>
+                  <h3 className='text-xl font-semibold text-gray-800'>NIGHTSHADE - FULL LENGTH TRAILER</h3>
+                  <p className='text-gray-600'>A BTS STUDIOS Production</p>
                 </div>
-                <Button asChild>
-                  <Link href='/movies'>Watch on ᗺTS</Link>
-                </Button>
+                <Link href='/movies' className='inline-block px-6 py-3 bg-gradient-to-r from-indigo-400 to-purple-500 text-white rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200'>
+                  Watch on ᗺTS
+                </Link>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
 
         {/* Bottom Section - Film Tools */}
         <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
-          <Card>
-            <CardHeader>
-              <CardTitle>🎨 Movie Poster Generator</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className='space-y-4'>
-                <p className='text-sm text-muted-foreground'>
-                  Create stunning movie posters using our AI-powered generator. Perfect for promoting your films.
-                </p>
-                <div className='space-y-2'>
-                  <div className='flex items-center space-x-2'>
-                    <span className='text-green-500'>✓</span>
-                    <span className='text-sm'>AI-powered design</span>
-                  </div>
-                  <div className='flex items-center space-x-2'>
-                    <span className='text-green-500'>✓</span>
-                    <span className='text-sm'>Customizable styles</span>
-                  </div>
-                  <div className='flex items-center space-x-2'>
-                    <span className='text-green-500'>✓</span>
-                    <span className='text-sm'>High-resolution output</span>
-                  </div>
+          <div className='relative group bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden'>
+            <div className='absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-pink-400 to-rose-500'></div>
+            <div className='relative z-10'>
+              <div className='text-2xl mb-2'>🎨</div>
+              <h3 className='text-lg font-bold mb-2 text-gray-800'>Movie Poster Generator</h3>
+              <p className='text-sm text-gray-600 mb-4'>
+                Create stunning movie posters using our AI-powered generator. Perfect for promoting your films.
+              </p>
+              <div className='space-y-2 mb-4'>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>AI-powered design</span>
                 </div>
-                <Button asChild className='w-full'>
-                  <Link href='/tools/poster-generator'>Generate Poster</Link>
-                </Button>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>Customizable styles</span>
+                </div>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>High-resolution output</span>
+                </div>
               </div>
-            </CardContent>
-          </Card>
+              <Link href='/tools/poster-generator' className='inline-block w-full px-4 py-2 bg-gradient-to-r from-pink-400 to-rose-500 text-white rounded-full font-semibold text-center hover:shadow-lg transform hover:scale-105 transition-all duration-200'>
+                Generate Poster
+              </Link>
+            </div>
+          </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>📝 Content Inscription</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className='space-y-4'>
-                <p className='text-sm text-muted-foreground'>
-                  Inscribe your content on the Bitcoin blockchain to make it permanent and immutable.
-                </p>
-                <div className='space-y-2'>
-                  <div className='flex items-center space-x-2'>
-                    <span className='text-green-500'>✓</span>
-                    <span className='text-sm'>Permanent storage on Bitcoin</span>
-                  </div>
-                  <div className='flex items-center space-x-2'>
-                    <span className='text-green-500'>✓</span>
-                    <span className='text-sm'>Immutable content</span>
-                  </div>
-                  <div className='flex items-center space-x-2'>
-                    <span className='text-green-500'>✓</span>
-                    <span className='text-sm'>Decentralized ownership</span>
-                  </div>
+          <div className='relative group bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden'>
+            <div className='absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-cyan-400 to-blue-500'></div>
+            <div className='relative z-10'>
+              <div className='text-2xl mb-2'>📝</div>
+              <h3 className='text-lg font-bold mb-2 text-gray-800'>Content Inscription</h3>
+              <p className='text-sm text-gray-600 mb-4'>
+                Inscribe your content on the Bitcoin blockchain to make it permanent and immutable.
+              </p>
+              <div className='space-y-2 mb-4'>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>Permanent storage on Bitcoin</span>
                 </div>
-                <Button asChild className='w-full'>
-                  <Link href='/inscribe'>Start Inscription</Link>
-                </Button>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>Immutable content</span>
+                </div>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>Decentralized ownership</span>
+                </div>
               </div>
-            </CardContent>
-          </Card>
+              <Link href='/inscribe' className='inline-block w-full px-4 py-2 bg-gradient-to-r from-cyan-400 to-blue-500 text-white rounded-full font-semibold text-center hover:shadow-lg transform hover:scale-105 transition-all duration-200'>
+                Start Inscription
+              </Link>
+            </div>
+          </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>🎬 Upload Content</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className='space-y-4'>
-                <p className='text-sm text-muted-foreground'>
-                  Upload your film or video content to our decentralized platform. Share your work with the world.
-                </p>
-                <div className='space-y-2'>
-                  <div className='flex items-center space-x-2'>
-                    <span className='text-green-500'>✓</span>
-                    <span className='text-sm'>Secure storage</span>
-                  </div>
-                  <div className='flex items-center space-x-2'>
-                    <span className='text-green-500'>✓</span>
-                    <span className='text-sm'>Global distribution</span>
-                  </div>
-                  <div className='flex items-center space-x-2'>
-                    <span className='text-green-500'>✓</span>
-                    <span className='text-sm'>Revenue sharing</span>
-                  </div>
+          <div className='relative group bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden'>
+            <div className='absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-emerald-400 to-teal-500'></div>
+            <div className='relative z-10'>
+              <div className='text-2xl mb-2'>🎬</div>
+              <h3 className='text-lg font-bold mb-2 text-gray-800'>Upload Content</h3>
+              <p className='text-sm text-gray-600 mb-4'>
+                Upload your film or video content to our decentralized platform. Share your work with the world.
+              </p>
+              <div className='space-y-2 mb-4'>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>Secure storage</span>
                 </div>
-                <Button asChild className='w-full'>
-                  <Link href='/upload'>Upload Now</Link>
-                </Button>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>Global distribution</span>
+                </div>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>Revenue sharing</span>
+                </div>
               </div>
-            </CardContent>
-          </Card>
+              <Link href='/upload' className='inline-block w-full px-4 py-2 bg-gradient-to-r from-emerald-400 to-teal-500 text-white rounded-full font-semibold text-center hover:shadow-lg transform hover:scale-105 transition-all duration-200'>
+                Upload Now
+              </Link>
+            </div>
+          </div>
         </div>
 
         {/* Recent Activity */}
-        <Card className='mt-8'>
-          <CardHeader>
-            <CardTitle>Recent Activity</CardTitle>
-          </CardHeader>
-          <CardContent>
+        <div className='relative group bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:shadow-2xl transition-all duration-300 mt-8 overflow-hidden'>
+          <div className='absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-violet-400 to-purple-500'></div>
+          <div className='relative z-10'>
+            <h2 className='text-2xl font-bold mb-6 text-gray-800'>
+              <span className='bg-gradient-to-r from-violet-500 to-purple-600 bg-clip-text text-transparent'>
+                📈 Recent Activity
+              </span>
+            </h2>
             <div className='space-y-4'>
-              <div className='flex items-center justify-between p-4 bg-muted rounded-lg'>
+              <div className='flex items-center justify-between p-4 bg-gray-50 rounded-lg border border-gray-200'>
                 <div>
-                  <p className='font-semibold'>Welcome to BTS STUDIOS</p>
-                  <p className='text-sm text-muted-foreground'>Your journey begins here</p>
+                  <p className='font-semibold text-gray-800'>Welcome to BTS STUDIOS</p>
+                  <p className='text-sm text-gray-600'>Your journey begins here</p>
                 </div>
-                <span className='text-sm text-muted-foreground'>Just now</span>
+                <span className='text-sm text-gray-500'>Just now</span>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       </div>
     </div>
   );
