@@ -113,15 +113,20 @@ export default function Page() {
           </div>
 
           <div className='relative group bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden'>
-            <div className='absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-orange-400 to-yellow-500'></div>
+            <div className='absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-red-400 to-pink-500'></div>
             <div className='relative z-10'>
-              <div className='text-2xl mb-2'>🎥</div>
-              <h3 className='text-lg font-bold mb-2 text-gray-800'>Vimeo Status</h3>
-              <p className='text-sm text-gray-600 mb-1'>Connected to Vimeo Pro</p>
-              <p className='text-sm text-gray-600 mb-4'>Storage: 2.5GB / 5TB</p>
-              <Link href='/settings/video' className='inline-block w-full px-4 py-2 bg-gradient-to-r from-orange-400 to-yellow-500 text-white rounded-full font-semibold text-center hover:shadow-lg transform hover:scale-105 transition-all duration-200'>
-                Manage Videos
-              </Link>
+              <div className='text-2xl mb-2'>🎬</div>
+              <h3 className='text-lg font-bold mb-2 text-gray-800'>BTS STUDIOS Streaming</h3>
+              <p className='text-sm text-gray-600 mb-1'>Premium Movie Platform</p>
+              <p className='text-sm text-gray-600 mb-4'>$10/month or $77/year</p>
+              <a 
+                href='https://movies.bts.network/' 
+                target='_blank' 
+                rel='noopener noreferrer'
+                className='inline-block w-full px-4 py-2 bg-gradient-to-r from-red-400 to-pink-500 text-white rounded-full font-semibold text-center hover:shadow-lg transform hover:scale-105 transition-all duration-200'
+              >
+                Subscribe Now
+              </a>
             </div>
           </div>
         </div>

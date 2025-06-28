@@ -43,12 +43,12 @@ export default function Home() {
       href: '/rewards'
     },
     {
-      icon: '🔒',
-      title: 'Secure Authentication',
-      description: 'NextAuth.js powered secure user authentication',
-      color: 'from-red-400 to-pink-500',
-      buttonText: 'Sign In',
-      href: '/auth'
+      icon: '🧠',
+      title: 'BTS Therapy AI',
+      description: 'AI-powered guidance to help filmmakers evolve and adapt in the changing film industry landscape',
+      color: 'from-teal-400 to-cyan-500',
+      buttonText: 'Get Guidance',
+      href: '/therapy-ai'
     },
     {
       icon: '🌐',
