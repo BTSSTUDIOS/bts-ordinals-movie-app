@@ -63,13 +63,16 @@ export default function Home() {
   return (
     <div className='min-h-screen py-2 gap-3 bg-gradient-to-br from-white via-gray-50 to-gray-100'>
       <Container>
-        <div className='flex text-4l flex-col items-center justify-center h-[60vh]'>
-          <h1 className='text-4xl font-bold mb-4 text-gray-900'>🎬 Welcome to BTS STUDIOS 🎬</h1>
-          <p className='text-2xl font-semibold mb-4 text-gray-800'>The World&apos;s First Decentralized Film Studio & Streaming Platform</p>
-          <p className='text-xl mb-4 text-gray-700'>Powered by <Image src={BTC} alt='btc-logo' width={width} height={height} className='inline' /> Bitcoin & Ordinals</p>
-          <p className='text-lg mb-4 text-gray-700'>🎥 Where Blockchain Meets Cinema 🎥</p>
-          <p className='text-md text-gray-600'>Experience the future of filmmaking and content distribution on the Bitcoin blockchain</p>
-          <p className='my-4 font-bold text-gray-800'>Visit <Link className='hover:text-sky-500 text-blue-600' href='/inscribe'>/inscribe</Link> to explore our decentralized content platform</p>
+        {/* Hero Section Card - Mobile Responsive */}
+        <div className='bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 mb-8 mx-4 md:mx-0'>
+          <div className='flex flex-col items-center justify-center min-h-[50vh] md:h-[60vh] text-center'>
+            <h1 className='text-2xl md:text-4xl font-bold mb-4 text-gray-900 px-2'>🎬 Welcome to BTS STUDIOS 🎬</h1>
+            <p className='text-lg md:text-2xl font-semibold mb-4 text-gray-800 px-2 leading-relaxed'>The World&apos;s First Decentralized Film Studio & Streaming Platform</p>
+            <p className='text-base md:text-xl mb-4 text-gray-700 px-2'>Powered by <Image src={BTC} alt='btc-logo' width={width} height={height} className='inline' /> Bitcoin & Ordinals</p>
+            <p className='text-sm md:text-lg mb-4 text-gray-700 px-2'>🎥 Where Blockchain Meets Cinema 🎥</p>
+            <p className='text-sm md:text-md text-gray-600 px-2 mb-4 leading-relaxed'>Experience the future of filmmaking and content distribution on the Bitcoin blockchain</p>
+            <p className='my-4 font-bold text-gray-800 px-2'>Visit <Link className='hover:text-sky-500 text-blue-600' href='/inscribe'>/inscribe</Link> to explore our decentralized content platform</p>
+          </div>
         </div>
 
         <div className='py-12'>
