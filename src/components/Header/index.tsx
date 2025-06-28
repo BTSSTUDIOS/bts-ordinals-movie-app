@@ -11,14 +11,14 @@ export default function Header() {
   const { loading: authLoading } = useContext(AuthContext);
 
   return (
-    <header className='h-[--header-height] flex justify-center items-center'>
+    <header className='h-[--header-height] flex justify-center items-center bg-white border-b border-gray-200 shadow-sm'>
       <div className='
           flex justify-between items-center 
           px-4 md:px-16 
           w-full
         '
       >
-        <h1 className='text-2xl font-bold'>{APP_NAME}</h1>
+        <h1 className='text-2xl font-bold text-gray-900'>{APP_NAME}</h1>
         { authLoading && <Loading /> }
         { !authLoading && <ConnectWallet />}
       </div>
