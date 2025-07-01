@@ -90,17 +90,8 @@ export default function Home() {
             <p className='text-lg md:text-2xl font-bold mb-4 text-gray-800 px-2 leading-relaxed hover:text-gray-900 transition-colors duration-300'>
               The World&apos;s First Decentralized Film Studio & Streaming Platform
             </p>
-            <p className='text-base md:text-xl mb-4 text-gray-700 px-2 hover:scale-105 transition-transform duration-300'>
+            <p className='text-lg md:text-2xl mb-4 text-gray-700 px-2 hover:scale-105 transition-transform duration-300 font-semibold'>
               Powered by <Image src="https://i0.wp.com/blog.bts-studios.io/wp-content/uploads/2024/09/xBTS_STUDIOS_ORG.png?w=200&ssl=1" alt='bts-logo' width={width} height={height} className='inline animate-pulse' /> BTS STUDIOS and <Image src={BTC} alt='btc-logo' width={width} height={height} className='inline animate-pulse' /> BITCOIN
-            </p>
-            <p className='text-sm md:text-lg mb-4 text-gray-700 px-2 hover:text-purple-600 transition-colors duration-300'>
-              🎥 Where Blockchain Meets Cinema 🎥
-            </p>
-            <p className='text-sm md:text-md text-gray-600 px-2 mb-4 leading-relaxed hover:text-gray-800 transition-colors duration-300'>
-              Experience the future of filmmaking and content distribution on the Bitcoin blockchain
-            </p>
-            <p className='my-4 font-bold text-gray-800 px-2 hover:scale-105 transition-transform duration-300'>
-              Visit <Link className='hover:text-sky-500 text-blue-600 font-extrabold hover:underline' href='/inscribe'>/inscribe</Link> to explore our decentralized content platform
             </p>
           </div>
         </div>
@@ -162,18 +153,21 @@ export default function Home() {
             <h2 className='text-4xl font-bold text-white mb-6'>
               🚀 Ready to Join the Future? 🚀
             </h2>
-            <p className='text-xl text-white/90 mb-8 max-w-2xl mx-auto'>
-              Be part of the revolution in decentralized filmmaking. Create, share, and earn on the Bitcoin blockchain.
+            <p className='text-xl text-white/90 mb-4 max-w-2xl mx-auto'>
+              🎥 Where Blockchain Meets Cinema 🎥
+            </p>
+            <p className='text-lg text-white/90 mb-8 max-w-2xl mx-auto'>
+              Experience the future of filmmaking and content distribution on the Bitcoin blockchain
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <Link
-                href='/inscribe'
+                href='#'
                 className='bg-white text-purple-600 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200'
               >
                 🎬 Start Creating
               </Link>
               <Link
-                href='/explore'
+                href='#'
                 className='border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-purple-600 transition-all duration-200'
               >
                 🌟 Explore Content
