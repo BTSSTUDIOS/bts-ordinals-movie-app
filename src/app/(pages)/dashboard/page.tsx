@@ -197,13 +197,19 @@ export default function Page() {
               <div className='text-2xl mb-2'>👥</div>
               <h3 className='text-lg font-bold mb-2 text-gray-800'>Profile</h3>
               <div className='flex items-center space-x-4'>
-                <div className='w-12 h-12 relative rounded-full overflow-hidden border-2 border-gray-200'>
-                  <Image
-                    src={session?.user?.image || '/default-avatar.png'}
-                    alt='Profile'
-                    fill
-                    className='object-cover'
-                  />
+                <div className='w-12 h-12 relative rounded-full overflow-hidden border-2 border-gray-200 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center'>
+                  {session?.user?.image ? (
+                    <Image
+                      src={session.user.image}
+                      alt='Profile'
+                      fill
+                      className='object-cover'
+                    />
+                  ) : (
+                    <span className='text-white font-bold text-lg'>
+                      {session?.user?.name ? session.user.name.charAt(0).toUpperCase() : 'U'}
+                    </span>
+                  )}
                 </div>
                 <div>
                   <h4 className='font-semibold text-sm'>{session?.user?.name || 'Anonymous User'}</h4>

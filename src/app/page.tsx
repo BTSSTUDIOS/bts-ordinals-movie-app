@@ -16,7 +16,7 @@ export default function Home() {
       description: 'High-quality video playback with global CDN distribution',
       color: 'from-cyan-400 to-blue-500',
       buttonText: 'Start Watching',
-      href: '/stream'
+      href: '#'
     },
     {
       icon: '💎',
@@ -24,7 +24,7 @@ export default function Home() {
       description: 'Wallet connection, content inscription, and payment processing',
       color: 'from-orange-400 to-yellow-500',
       buttonText: 'Connect Wallet',
-      href: '/wallet'
+      href: '#'
     },
     {
       icon: '🎨',
@@ -32,7 +32,7 @@ export default function Home() {
       description: 'Movie poster generation and content optimization',
       color: 'from-purple-400 to-pink-500',
       buttonText: 'Create Poster',
-      href: '/ai-tools'
+      href: '#'
     },
     {
       icon: '💰',
@@ -40,7 +40,7 @@ export default function Home() {
       description: 'Creator earnings, view rewards, and referral bonuses',
       color: 'from-green-400 to-emerald-500',
       buttonText: 'Earn Rewards',
-      href: '/rewards'
+      href: '#'
     },
     {
       icon: '🧠',
@@ -48,15 +48,15 @@ export default function Home() {
       description: 'AI-powered guidance to help filmmakers evolve and adapt in the changing film industry landscape',
       color: 'from-teal-400 to-cyan-500',
       buttonText: 'Get Guidance',
-      href: '/therapyai'
+      href: '#'
     },
     {
-      icon: '🌐',
-      title: 'Global Distribution',
-      description: 'Worldwide content distribution on Bitcoin blockchain',
+      icon: '⬆️🟧',
+      title: 'Connect Your Wallet',
+      description: 'Click the CONNECT WALLET button at the top of the screen to get started',
       color: 'from-indigo-400 to-purple-500',
-      buttonText: 'Explore',
-      href: '/explore'
+      buttonText: 'Connect Now',
+      href: '#'
     }
   ];
 
