@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import ConnectWallet from './ConnectWallet';
 import { Loading } from '../forms/common';
 import { APP_NAME } from '@/lib/constants';
+import Image from 'next/image';
 
 export default function Header() {
   
@@ -18,7 +19,16 @@ export default function Header() {
           w-full
         '
       >
-        <h1 className='text-2xl font-bold text-gray-900'>{APP_NAME}</h1>
+        <div className='flex items-center space-x-3'>
+          <Image 
+            src="https://i0.wp.com/blog.bts-studios.io/wp-content/uploads/2024/09/xBTS_STUDIOS_ORG.png?w=200&ssl=1"
+            alt="BTS STUDIOS Logo"
+            width={40}
+            height={40}
+            className='rounded-lg'
+          />
+          <h1 className='text-2xl font-bold text-gray-900'>{APP_NAME}</h1>
+        </div>
         { authLoading && <Loading /> }
         { !authLoading && <ConnectWallet />}
       </div>

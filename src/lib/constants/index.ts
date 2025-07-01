@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 export * from './imgs';
 export * from './time';
 
-export const APP_NAME = 'ᗺTS STUDIOS FILMS';
+export const APP_NAME = 'ᗺTS STUDIOS';
 const CLEAN_APP_NAME = 'bts-studios-films'; // Simplified version for cookie names
 
 export const DEFAULT_METADATA: Metadata = {

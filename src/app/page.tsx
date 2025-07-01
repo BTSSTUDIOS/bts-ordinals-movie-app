@@ -91,7 +91,7 @@ export default function Home() {
               The World&apos;s First Decentralized Film Studio & Streaming Platform
             </p>
             <p className='text-base md:text-xl mb-4 text-gray-700 px-2 hover:scale-105 transition-transform duration-300'>
-              Powered by <Image src={BTC} alt='btc-logo' width={width} height={height} className='inline animate-pulse' /> Bitcoin & Ordinals
+              Powered by <Image src="https://i0.wp.com/blog.bts-studios.io/wp-content/uploads/2024/09/xBTS_STUDIOS_ORG.png?w=200&ssl=1" alt='bts-logo' width={width} height={height} className='inline animate-pulse' /> BTS STUDIOS and <Image src={BTC} alt='btc-logo' width={width} height={height} className='inline animate-pulse' /> BITCOIN
             </p>
             <p className='text-sm md:text-lg mb-4 text-gray-700 px-2 hover:text-purple-600 transition-colors duration-300'>
               🎥 Where Blockchain Meets Cinema 🎥
