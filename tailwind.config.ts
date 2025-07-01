@@ -52,6 +52,24 @@ const config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        'neon-green': {
+          50: '#f0fdf4',
+          400: '#4ade80',
+          500: '#22c55e',
+          600: '#16a34a',
+        },
+        'neon-pink': {
+          50: '#fdf2f8',
+          400: '#f472b6',
+          500: '#ec4899',
+          600: '#db2777',
+        },
+        'neon-purple': {
+          50: '#faf5ff',
+          400: '#c084fc',
+          500: '#a855f7',
+          600: '#9333ea',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',

@@ -48,7 +48,7 @@ export default function Home() {
       description: 'AI-powered guidance to help filmmakers evolve and adapt in the changing film industry landscape',
       color: 'from-teal-400 to-cyan-500',
       buttonText: 'Get Guidance',
-      href: '/therapy-ai'
+      href: '/therapyai'
     },
     {
       icon: '🌐',
@@ -73,17 +73,17 @@ export default function Home() {
       </div>
 
       {/* Animated Gradient Background */}
-      <div className='absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 animate-gradient z-0'></div>
+      <div className='absolute inset-0 bg-gradient-to-br from-neon-green-50 via-neon-pink-50 to-neon-purple-50 animate-gradient z-0'></div>
 
       <Container className='relative z-10'>
         {/* Hero Section Card - Enhanced with Effects */}
         <div className='bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-2xl border border-gray-200/50 mb-8 mx-4 md:mx-0 relative overflow-hidden'>
           {/* Subtle animated border */}
-          <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 opacity-20 animate-pulse'></div>
+          <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-neon-green-400 via-neon-pink-500 to-neon-purple-600 opacity-20 animate-slow-pulse'></div>
           
           <div className='flex flex-col items-center justify-center min-h-[50vh] md:h-[60vh] text-center relative z-10'>
             <h1 className='text-2xl md:text-5xl font-black mb-4 text-gray-900 px-2 tracking-tight hover:scale-105 transition-transform duration-300'>
-              <span className='bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x'>
+              <span className='bg-gradient-to-r from-neon-green-400 via-neon-pink-500 to-neon-purple-600 bg-clip-text text-transparent animate-gradient-x'>
                 🎬 Welcome to BTS STUDIOS 🎬
               </span>
             </h1>

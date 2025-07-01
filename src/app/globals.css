@@ -89,12 +89,25 @@
   }
 }
 
+@keyframes slow-pulse {
+  0%, 100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
 .animate-gradient {
   background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
+  animation: gradient 25s ease infinite;
 }
 
 .animate-gradient-x {
   background-size: 200% 200%;
-  animation: gradient-x 3s ease infinite;
+  animation: gradient-x 8s ease infinite;
+}
+
+.animate-slow-pulse {
+  animation: slow-pulse 4s ease-in-out infinite;
 }
