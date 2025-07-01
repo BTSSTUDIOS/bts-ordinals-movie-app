@@ -61,21 +61,51 @@ export default function Home() {
   ];
 
   return (
-    <div className='min-h-screen py-2 gap-3 bg-gradient-to-br from-white via-gray-50 to-gray-100'>
-      <Container>
-        {/* Hero Section Card - Mobile Responsive */}
-        <div className='bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 mb-8 mx-4 md:mx-0'>
-          <div className='flex flex-col items-center justify-center min-h-[50vh] md:h-[60vh] text-center'>
-            <h1 className='text-2xl md:text-4xl font-bold mb-4 text-gray-900 px-2'>🎬 Welcome to BTS STUDIOS 🎬</h1>
-            <p className='text-lg md:text-2xl font-semibold mb-4 text-gray-800 px-2 leading-relaxed'>The World&apos;s First Decentralized Film Studio & Streaming Platform</p>
-            <p className='text-base md:text-xl mb-4 text-gray-700 px-2'>Powered by <Image src={BTC} alt='btc-logo' width={width} height={height} className='inline' /> Bitcoin & Ordinals</p>
-            <p className='text-sm md:text-lg mb-4 text-gray-700 px-2'>🎥 Where Blockchain Meets Cinema 🎥</p>
-            <p className='text-sm md:text-md text-gray-600 px-2 mb-4 leading-relaxed'>Experience the future of filmmaking and content distribution on the Bitcoin blockchain</p>
-            <p className='my-4 font-bold text-gray-800 px-2'>Visit <Link className='hover:text-sky-500 text-blue-600' href='/inscribe'>/inscribe</Link> to explore our decentralized content platform</p>
+    <div className='min-h-screen py-2 gap-3 bg-gradient-to-br from-white via-gray-50 to-gray-100 relative overflow-hidden'>
+      {/* Animated Background Particles */}
+      <div className='absolute inset-0 overflow-hidden pointer-events-none z-0'>
+        <div className='absolute top-20 left-10 text-4xl opacity-10 animate-bounce' style={{animationDelay: '0s'}}>🎬</div>
+        <div className='absolute top-40 right-20 text-3xl opacity-10 animate-bounce' style={{animationDelay: '1s'}}>💎</div>
+        <div className='absolute bottom-40 left-20 text-3xl opacity-10 animate-bounce' style={{animationDelay: '2s'}}>🎥</div>
+        <div className='absolute bottom-20 right-10 text-4xl opacity-10 animate-bounce' style={{animationDelay: '3s'}}>⚡</div>
+        <div className='absolute top-1/2 left-1/4 text-2xl opacity-10 animate-pulse' style={{animationDelay: '0.5s'}}>🎨</div>
+        <div className='absolute top-1/3 right-1/3 text-2xl opacity-10 animate-pulse' style={{animationDelay: '1.5s'}}>💰</div>
+      </div>
+
+      {/* Animated Gradient Background */}
+      <div className='absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 animate-gradient z-0'></div>
+
+      <Container className='relative z-10'>
+        {/* Hero Section Card - Enhanced with Effects */}
+        <div className='bg-white/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-2xl border border-gray-200/50 mb-8 mx-4 md:mx-0 relative overflow-hidden'>
+          {/* Subtle animated border */}
+          <div className='absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 opacity-20 animate-pulse'></div>
+          
+          <div className='flex flex-col items-center justify-center min-h-[50vh] md:h-[60vh] text-center relative z-10'>
+            <h1 className='text-2xl md:text-5xl font-black mb-4 text-gray-900 px-2 tracking-tight hover:scale-105 transition-transform duration-300'>
+              <span className='bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x'>
+                🎬 Welcome to BTS STUDIOS 🎬
+              </span>
+            </h1>
+            <p className='text-lg md:text-2xl font-bold mb-4 text-gray-800 px-2 leading-relaxed hover:text-gray-900 transition-colors duration-300'>
+              The World&apos;s First Decentralized Film Studio & Streaming Platform
+            </p>
+            <p className='text-base md:text-xl mb-4 text-gray-700 px-2 hover:scale-105 transition-transform duration-300'>
+              Powered by <Image src={BTC} alt='btc-logo' width={width} height={height} className='inline animate-pulse' /> Bitcoin & Ordinals
+            </p>
+            <p className='text-sm md:text-lg mb-4 text-gray-700 px-2 hover:text-purple-600 transition-colors duration-300'>
+              🎥 Where Blockchain Meets Cinema 🎥
+            </p>
+            <p className='text-sm md:text-md text-gray-600 px-2 mb-4 leading-relaxed hover:text-gray-800 transition-colors duration-300'>
+              Experience the future of filmmaking and content distribution on the Bitcoin blockchain
+            </p>
+            <p className='my-4 font-bold text-gray-800 px-2 hover:scale-105 transition-transform duration-300'>
+              Visit <Link className='hover:text-sky-500 text-blue-600 font-extrabold hover:underline' href='/inscribe'>/inscribe</Link> to explore our decentralized content platform
+            </p>
           </div>
         </div>
 
-        <div className='py-12'>
+        <div className='py-12 relative z-10'>
           <h2 className='text-3xl font-bold text-center mb-12 text-gray-800'>
             <span className='bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent'>
               ✨ Platform Features ✨
@@ -127,7 +157,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className='py-16 text-center'>
+        <div className='py-16 text-center relative z-10'>
           <div className='bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 rounded-3xl p-12 shadow-2xl'>
             <h2 className='text-4xl font-bold text-white mb-6'>
               🚀 Ready to Join the Future? 🚀
