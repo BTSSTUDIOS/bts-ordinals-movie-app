@@ -176,6 +176,93 @@ export default function Page() {
           </div>
         </div>
 
+        {/* Middle Section - New Features */}
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mb-8'>
+          <div className='relative group bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden'>
+            <div className='absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-orange-400 to-red-500'></div>
+            <div className='relative z-10'>
+              <div className='text-2xl mb-2'>📝</div>
+              <h3 className='text-lg font-bold mb-2 text-gray-800'>Movie Script Generator</h3>
+              <p className='text-sm text-gray-600 mb-4'>
+                Create compelling movie scripts using our advanced AI-powered script generator. Transform your ideas into professional screenplays.
+              </p>
+              <div className='space-y-2 mb-4'>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>AI-powered script writing</span>
+                </div>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>Multiple genres supported</span>
+                </div>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>Professional formatting</span>
+                </div>
+              </div>
+              <Link href='/tools/script-generator' className='inline-block w-full px-4 py-2 bg-gradient-to-r from-orange-400 to-red-500 text-white rounded-full font-semibold text-center hover:shadow-lg transform hover:scale-105 transition-all duration-200'>
+                Generate Script
+              </Link>
+            </div>
+          </div>
+
+          <div className='relative group bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden'>
+            <div className='absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-yellow-400 to-orange-500'></div>
+            <div className='relative z-10'>
+              <div className='text-2xl mb-2'>🪙</div>
+              <h3 className='text-lg font-bold mb-2 text-gray-800'>BTS Token</h3>
+              <p className='text-sm text-gray-600 mb-4'>
+                Explore the BTS ecosystem token. Trade, stake, and earn rewards while supporting the future of decentralized filmmaking.
+              </p>
+              <div className='space-y-2 mb-4'>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>Token trading & staking</span>
+                </div>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>Governance participation</span>
+                </div>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>Reward distribution</span>
+                </div>
+              </div>
+              <Link href='#' className='inline-block w-full px-4 py-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-full font-semibold text-center hover:shadow-lg transform hover:scale-105 transition-all duration-200'>
+                View Token
+              </Link>
+            </div>
+          </div>
+
+          <div className='relative group bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden'>
+            <div className='absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 bg-gradient-to-r from-indigo-400 to-purple-500'></div>
+            <div className='relative z-10'>
+              <div className='text-2xl mb-2'>🌐</div>
+              <h3 className='text-lg font-bold mb-2 text-gray-800'>BTS Metaverse</h3>
+              <p className='text-sm text-gray-600 mb-4'>
+                Step into the BTS Metaverse. Experience immersive virtual worlds, attend virtual premieres, and connect with creators globally.
+              </p>
+              <div className='space-y-2 mb-4'>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>Virtual movie theaters</span>
+                </div>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>Creator networking</span>
+                </div>
+                <div className='flex items-center space-x-2'>
+                  <span className='text-green-500'>✓</span>
+                  <span className='text-sm'>Immersive experiences</span>
+                </div>
+              </div>
+              <Link href='#' className='inline-block w-full px-4 py-2 bg-gradient-to-r from-indigo-400 to-purple-500 text-white rounded-full font-semibold text-center hover:shadow-lg transform hover:scale-105 transition-all duration-200'>
+                Enter Metaverse
+              </Link>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom Section - Stats and Management */}
         <div className='grid grid-cols-1 md:grid-cols-4 gap-6 mb-8'>
           <div className='relative group bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-200 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden'>

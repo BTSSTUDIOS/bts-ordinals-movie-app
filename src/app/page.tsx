@@ -51,6 +51,30 @@ export default function Home() {
       href: '#'
     },
     {
+      icon: '📝',
+      title: 'Movie Script Generator',
+      description: 'Create compelling movie scripts using our advanced AI-powered script generator',
+      color: 'from-orange-400 to-red-500',
+      buttonText: 'Generate Script',
+      href: '#'
+    },
+    {
+      icon: '🪙',
+      title: 'BTS Token',
+      description: 'Explore the BTS ecosystem token. Trade, stake, and earn rewards',
+      color: 'from-yellow-400 to-orange-500',
+      buttonText: 'View Token',
+      href: '#'
+    },
+    {
+      icon: '🌐',
+      title: 'BTS Metaverse',
+      description: 'Step into the BTS Metaverse. Experience immersive virtual worlds and connect with creators',
+      color: 'from-indigo-400 to-purple-500',
+      buttonText: 'Enter Metaverse',
+      href: '#'
+    },
+    {
       icon: '⬆️🟧',
       title: 'Connect Your Wallet',
       description: 'Click the CONNECT WALLET button at the top of the screen to get started',
@@ -167,10 +191,12 @@ export default function Home() {
                 🎬 Start Creating
               </Link>
               <Link
-                href='#'
+                href='https://explore.bts.network/'
+                target='_blank'
+                rel='noopener noreferrer'
                 className='border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-purple-600 transition-all duration-200'
               >
-                🌟 Explore Content
+                🌟 Explore more
               </Link>
             </div>
           </div>

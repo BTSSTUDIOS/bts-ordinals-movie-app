@@ -25,6 +25,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'blog.bts.network',
       },
+      {
+        protocol: 'https',
+        hostname: 'scripts.bts.network',
+      },
     ],
   },
   experimental: {
