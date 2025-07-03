@@ -24,6 +24,9 @@ export default async function RootLayout({
   
   return (
     <html lang='en' suppressHydrationWarning>
+      <head>
+        <meta property="og:logo" content="https://blog.bts.network/wp-content/uploads/2025/07/BTS_LOGO-scaled.png" />
+      </head>
       <body className={font.className}>
         <Providers session={session}>
           <Header />
