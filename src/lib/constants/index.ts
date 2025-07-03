@@ -18,7 +18,7 @@ export const DEFAULT_METADATA: Metadata = {
     siteName: APP_NAME,
     images: [
       {
-        url: 'https://blog.bts.network/wp-content/uploads/2025/07/bts_OG2.png',
+        url: 'https://blog.bts.network/wp-content/uploads/2025/07/bts_OG2MAIN.png',
         width: 1200,
         height: 630,
         alt: 'BTS STUDIOS - Decentralized Film Studio & Streaming Platform',
@@ -31,7 +31,7 @@ export const DEFAULT_METADATA: Metadata = {
     card: 'summary_large_image',
     title: APP_NAME,
     description: 'The World\'s First Decentralized Film Studio & Streaming Platform',
-    images: ['https://blog.bts.network/wp-content/uploads/2025/07/bts_OG2.png'],
+    images: ['https://blog.bts.network/wp-content/uploads/2025/07/bts_OG2MAIN.png'],
     creator: '@hodlbtsstudios',
   },
   robots: {
