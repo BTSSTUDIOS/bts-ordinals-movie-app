@@ -11,6 +11,43 @@ export const DEFAULT_METADATA: Metadata = {
   icons: {
     icon: '/favicon.ico',
   },
+  openGraph: {
+    title: APP_NAME,
+    description: 'The World\'s First Decentralized Film Studio & Streaming Platform',
+    url: 'https://app.bts.network',
+    siteName: APP_NAME,
+    images: [
+      {
+        url: 'https://blog.bts.network/wp-content/uploads/2025/07/bts_OG2.png',
+        width: 1200,
+        height: 630,
+        alt: 'BTS STUDIOS - Decentralized Film Studio & Streaming Platform',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: APP_NAME,
+    description: 'The World\'s First Decentralized Film Studio & Streaming Platform',
+    images: ['https://blog.bts.network/wp-content/uploads/2025/07/bts_OG2.png'],
+    creator: '@hodlbtsstudios',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code', // Add your Google verification code
+  },
 };
 
 export const DEFAULT_DIMENSIONS = {

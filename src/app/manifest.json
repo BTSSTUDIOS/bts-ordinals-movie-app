@@ -1,8 +1,12 @@
 {
-    "name": "NextJS Bitcoin Application",
-    "short_name": "BTC App",
+    "name": "BTS STUDIOS - Decentralized Film Studio",
+    "short_name": "BTS STUDIOS",
+    "description": "The World's First Decentralized Film Studio & Streaming Platform",
     "icons": [],
-    "theme_color": "#ffffff",
+    "theme_color": "#000000",
     "background_color": "#ffffff",
-    "display": "standalone"
+    "display": "standalone",
+    "start_url": "/",
+    "scope": "/",
+    "orientation": "portrait-primary"
 }

@@ -21,6 +21,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'i0.wp.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'blog.bts.network',
+      },
     ],
   },
   experimental: {
