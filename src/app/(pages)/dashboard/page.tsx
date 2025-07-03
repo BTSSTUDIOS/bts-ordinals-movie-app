@@ -65,7 +65,7 @@ export default function Page() {
             <div className='max-w-3xl mx-auto'>
               <div className='aspect-video relative rounded-lg overflow-hidden bg-gray-100 border-2 border-gray-200'>
                 <iframe 
-                  src="https://player.vimeo.com/video/358185350?h=fc495ed011" 
+                  src="https://player.vimeo.com/video/290191024?h=9ffdbfbdee" 
                   className="w-full h-full"
                   allow="autoplay; fullscreen; picture-in-picture" 
                   allowFullScreen
@@ -73,7 +73,7 @@ export default function Page() {
               </div>
               <div className='mt-4 flex justify-between items-center'>
                 <div>
-                  <h3 className='text-xl font-semibold text-gray-800'>NIGHTSHADE - FULL LENGTH TRAILER</h3>
+                  <h3 className='text-xl font-semibold text-gray-800'>SUPEzero</h3>
                   <p className='text-gray-600'>A BTS STUDIOS Production</p>
                 </div>
                 <a 
