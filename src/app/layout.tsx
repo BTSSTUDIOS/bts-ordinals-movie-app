@@ -5,6 +5,7 @@ import { Metadata } from 'next';
 import { DEFAULT_METADATA } from '@/lib/constants';
 import Providers from './providers';
 import { getServerSession } from 'next-auth';
+import { Analytics } from '@vercel/analytics/next';
 
 import Footer from '@/components/Footer';
 import { authOptions } from '@/lib/auth';
@@ -34,6 +35,7 @@ export default async function RootLayout({
           <Footer />
           <Toaster richColors />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
